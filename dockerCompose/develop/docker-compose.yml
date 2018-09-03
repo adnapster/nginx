@@ -1,0 +1,16 @@
+version: '3'
+services:
+  nginx:
+    restart: always
+    build: ../../conf/develop/
+    volumes:
+    - ./mysite.template:/etc/nginx/conf.d/mysite.template
+    ports:
+    - "8765:8765"
+    networks:
+      - cloud
+    
+
+networks:
+  cloud:
+   driver: bridge
